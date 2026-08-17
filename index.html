@@ -32,7 +32,7 @@ img{display:block;max-width:100%}
 .eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--terracotta)}
 .sec-title{font-family:var(--serif);font-weight:900;font-size:clamp(1.7rem,1.2rem+2.4vw,2.9rem);line-height:1.15;letter-spacing:.01em;margin:.5rem 0 .8rem}
 .sec-lead{color:var(--muted);max-width:62ch;font-size:1.02rem}
-section{padding:var(--sp-sec) 0;position:relative}
+section{padding:var(--sp-sec) 0;position:relative;scroll-margin-top:76px}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rgba(246,239,228,.82);border-bottom:1px solid var(--border);transition:box-shadow .3s}
@@ -444,13 +444,14 @@ const DATA = {
 const TYPE_ICON={food:"🍜",spa:"💆",sightseeing:"🏛️",shopping:"🛍️"};
 const cityAccent={hcm:"#c15f3c",dn:"#3d7a6b",hoi:"#c99a3f",back:"#7a6a56"};
 const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+const gmap=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
 
 /* LANDMARK HUB */
 const lmGrid=document.getElementById('lmGrid');
 LANDMARKS.forEach(l=>{const el=document.createElement('div');el.className='lm reveal';
   el.innerHTML=`<div class="ph"><span class="tag">📍 ${l.city}</span><img loading="lazy" src="${esc(l.img)}" alt="${esc(l.name)}"/></div>
     <div class="body"><h4>${l.name}</h4><p>${l.desc}</p>
-    <a class="map-btn" href="${esc(l.map)}" target="_blank" rel="noopener">🗺️ Google Maps 開啟定位</a></div>`;
+    <a class="map-btn" href="${gmap(l.name)}" target="_blank" rel="noopener">🗺️ Google Maps 開啟定位</a></div>`;
   lmGrid.appendChild(el);});
 
 /* SCHEDULE CARDS */
@@ -487,7 +488,7 @@ function renderDay(){
       <div class="tl-body"><div class="tl-time">${it.time}</div><div class="tl-title">${it.title}</div>
       <div class="tl-desc">${it.desc}</div>
       <div class="tl-actions"><span class="tl-spot">📍 ${it.spot}</span>
-      <a class="tl-map" href="${esc(it.map)}" target="_blank" rel="noopener">🗺️ 開啟 Google 地圖</a></div></div></div>`;
+      <a class="tl-map" href="${gmap(it.spot)}" target="_blank" rel="noopener">🗺️ 開啟 Google 地圖</a></div></div></div>`;
     tl.appendChild(el);
   });
 }
@@ -534,14 +535,14 @@ initChart();calcBudget();
 
 /* STRATEGY */
 const STRAT=[
-  {emoji:"🔥",badge:"Day 7 (週五)",h:"峴港龍橋噴火/噴水秀精準對接",p:"龍橋噴火秀時間為週五、六、日 21:00 準時舉行。特將重頭戲調整至 Day 7 (3/5 週五)，完美作為旅程最後一夜的震撼壓軸！",tip:"📌 建議於 20:45 前抵達龍頭周邊或河岸景觀咖啡館佔位。",map:"https://www.google.com/maps/place/?q=place_id:ChIJL1GKWJYZQjERLrEGqlK2kwQ"},
-  {emoji:"🏛️",badge:"Day 2 (週日)",h:"西貢聖母大教堂整修拍照視角",p:"聖母大教堂目前正進行大規模工程，外圍設有鷹架與圍欄，內部暫不開放。建議心理預期調整為「外觀合照」，可將重點放在對面西貢中央郵局與緊鄰的胡志明書街。",tip:"📷 可順路步行 5 分鐘至胡志明市歌劇院或市政廳拍攝法式建築。",map:"https://www.google.com/maps/place/?q=place_id:ChIJRxocgI4udTERspsje3PV-LA"},
-  {emoji:"🌉",badge:"Day 5 (週三)",h:"巴拿山黃金佛手橋攻頂策略",p:"安排 07:45 出發直奔黃金佛手橋能完美避開團客大軍。山頂氣溫比平地低約 3~5°C，且午後容易起霧，請隨身攜帶薄外套防風。",tip:"🎟️ 建議預先購買含專車接送與纜車門票的電子套票。",map:"https://www.google.com/maps/place/?q=place_id:ChIJj9PFGT33QTERDbUKRxFsdmM"}
+  {emoji:"🔥",badge:"Day 7 (週五)",h:"峴港龍橋噴火/噴水秀精準對接",p:"龍橋噴火秀時間為週五、六、日 21:00 準時舉行。特將重頭戲調整至 Day 7 (3/5 週五)，完美作為旅程最後一夜的震撼壓軸！",tip:"📌 建議於 20:45 前抵達龍頭周邊或河岸景觀咖啡館佔位。",q:"Dragon Bridge Da Nang"},
+  {emoji:"🏛️",badge:"Day 2 (週日)",h:"西貢聖母大教堂整修拍照視角",p:"聖母大教堂目前正進行大規模工程，外圍設有鷹架與圍欄，內部暫不開放。建議心理預期調整為「外觀合照」，可將重點放在對面西貢中央郵局與緊鄰的胡志明書街。",tip:"📷 可順路步行 5 分鐘至胡志明市歌劇院或市政廳拍攝法式建築。",q:"Saigon Notre-Dame Cathedral Basilica"},
+  {emoji:"🌉",badge:"Day 5 (週三)",h:"巴拿山黃金佛手橋攻頂策略",p:"安排 07:45 出發直奔黃金佛手橋能完美避開團客大軍。山頂氣溫比平地低約 3~5°C，且午後容易起霧，請隨身攜帶薄外套防風。",tip:"🎟️ 建議預先購買含專車接送與纜車門票的電子套票。",q:"Golden Bridge Ba Na Hills Da Nang"}
 ];
 const stratGrid=document.getElementById('stratGrid');
 STRAT.forEach(s=>{const el=document.createElement('div');el.className='strat reveal';
   el.innerHTML=`<span class="badge">${s.badge}</span><div class="emoji">${s.emoji}</div><h4>${s.h}</h4><p>${s.p}</p><div class="tip">${s.tip}</div>
-    <a class="map-btn" href="${esc(s.map)}" target="_blank" rel="noopener">🗺️ 地圖定位</a>`;
+    <a class="map-btn" href="${gmap(s.q)}" target="_blank" rel="noopener">🗺️ 地圖定位</a>`;
   stratGrid.appendChild(el);});
 
 /* STAY */
