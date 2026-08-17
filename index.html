@@ -169,9 +169,12 @@ nav.scrolled{box-shadow:var(--shadow-sm)}
 .total-box .tv{font-family:var(--serif);font-weight:900;font-size:2rem;margin:.1rem 0}
 .total-box .tp{font-size:.82rem;opacity:.9}
 .blist{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.blist li{display:flex;justify-content:space-between;align-items:center;padding:.55rem .2rem;border-bottom:1px dashed var(--border);font-size:.9rem}
-.blist li span:first-child{color:var(--ink)}
-.blist li b{font-family:var(--serif);color:var(--terracotta-deep)}
+.blist li{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.55rem .2rem;border-bottom:1px dashed var(--border);font-size:.9rem}
+.blist .lft{display:flex;align-items:center;gap:.55rem;color:var(--ink);min-width:0}
+.blist .dot{width:12px;height:12px;border-radius:4px;flex:none;box-shadow:0 0 0 2px rgba(0,0,0,.04)}
+.blist .rgt{display:flex;align-items:center;gap:.7rem;flex:none}
+.blist .pct{font-size:.76rem;font-weight:700;color:#fff;background:var(--jade);padding:.12rem .5rem;border-radius:999px;min-width:44px;text-align:center}
+.blist li b{font-family:var(--serif);color:var(--terracotta-deep);white-space:nowrap}
 
 /* STRATEGY */
 .strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem}
@@ -526,8 +529,8 @@ function calcBudget(){
   document.getElementById('perV').textContent='人均估算：'+fmt(PER_PERSON,cur);
   document.getElementById('chartCenter').textContent=fmt(PER_PERSON,cur);
   const list=document.getElementById('blist');list.innerHTML='';
-  BUDGET.forEach(b=>{const scaled=b.v/2*ppl;const li=document.createElement('li');
-    li.innerHTML=`<span>${b.k}</span><b>${fmt(scaled,cur)}</b>`;list.appendChild(li);});
+  BUDGET.forEach(b=>{const scaled=b.v/2*ppl;const pct=Math.round(b.v/BASE_TOTAL*100);const li=document.createElement('li');
+    li.innerHTML=`<span class="lft"><i class="dot" style="background:${b.c}"></i>${b.k}</span><span class="rgt"><span class="pct">${pct}%</span><b>${fmt(scaled,cur)}</b></span>`;list.appendChild(li);});
 }
 document.getElementById('ppl').addEventListener('input',calcBudget);
 document.getElementById('cur').addEventListener('change',calcBudget);
