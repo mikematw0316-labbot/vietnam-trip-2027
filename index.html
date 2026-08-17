@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2027 越南雙城慢活指南 · 胡志明市 × 峴港會安（實景版）</title>
+<meta name="description" content="8 天 7 夜自由行實景手冊：整合景點照片與 Google Maps 一鍵導航。胡志明市歷史文化 × 峴港會安濱海渡假 SPA × 會安燈籠夜景，精準對接週五龍橋噴火秀。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --sand:#f6efe4; --sand-deep:#efe3d0; --card:#fffaf3; --border:#e7d8c2;
+  --ink:#2a2118; --muted:#7a6a56; --terracotta:#c15f3c; --terracotta-deep:#a44a2c;
+  --jade:#3d7a6b; --jade-deep:#2c5c50; --gold:#c99a3f; --sky:#4a7fa5;
+  --shadow-sm:0 1px 3px rgba(60,40,20,.08),0 1px 2px rgba(60,40,20,.04);
+  --shadow-md:0 12px 30px -12px rgba(80,50,25,.28);
+  --shadow-lg:0 34px 60px -28px rgba(80,50,25,.42);
+  --serif:"Noto Serif TC",serif; --sans:"Noto Sans TC",system-ui,sans-serif;
+  --sp-sec:clamp(3.5rem,2.6rem+4vw,7rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--sand);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.1rem,3vw,2.2rem);position:relative;z-index:1}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--terracotta)}
+.sec-title{font-family:var(--serif);font-weight:900;font-size:clamp(1.7rem,1.2rem+2.4vw,2.9rem);line-height:1.15;letter-spacing:.01em;margin:.5rem 0 .8rem}
+.sec-lead{color:var(--muted);max-width:62ch;font-size:1.02rem}
+section{padding:var(--sp-sec) 0;position:relative}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rgba(246,239,228,.82);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav.scrolled{box-shadow:var(--shadow-sm)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--serif);font-weight:900;font-size:1.1rem;display:flex;align-items:center;gap:.5rem}
+.brand .flag{font-size:1.35rem}
+.nav-links{display:flex;gap:.2rem}
+.nav-links a{padding:.4rem .72rem;border-radius:999px;font-size:.88rem;font-weight:500;color:var(--muted);transition:.25s var(--ease)}
+.nav-links a:hover{color:var(--terracotta);background:var(--sand-deep)}
+.burger{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+#mnav{display:none;flex-direction:column;padding:.6rem 0 1rem;border-top:1px solid var(--border)}
+#mnav a{padding:.6rem clamp(1.1rem,3vw,2.2rem);font-weight:500}
+@media(max-width:960px){.nav-links{display:none}.burger{display:block}}
+
+/* HERO */
+.hero{padding-top:clamp(3rem,2rem+6vw,6rem);padding-bottom:0;overflow:hidden}
+.hero-grad{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(1100px 520px at 78% -8%,rgba(193,95,60,.20),transparent 60%),
+  radial-gradient(760px 520px at 8% 22%,rgba(61,122,107,.16),transparent 62%),
+  radial-gradient(700px 400px at 50% 118%,rgba(201,154,63,.16),transparent 60%)}
+.hero-in{position:relative;z-index:1;text-align:center;padding-bottom:clamp(2rem,4vw,3.5rem)}
+.date-pill{display:inline-flex;gap:.5rem;align-items:center;background:var(--card);border:1px solid var(--border);padding:.4rem 1.05rem;border-radius:999px;font-weight:500;font-size:.9rem;color:var(--terracotta-deep);box-shadow:var(--shadow-sm)}
+.hero h1{font-family:var(--serif);font-weight:900;line-height:1.06;letter-spacing:.01em;font-size:clamp(2.6rem,1.2rem+6.6vw,6rem);margin:1.3rem 0 .3rem}
+.hero h1 .hl{color:var(--terracotta);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.08em;height:.24em;background:linear-gradient(90deg,rgba(201,154,63,.5),rgba(193,95,60,.32));z-index:-1;border-radius:4px}
+.hero-sub{color:var(--muted);max-width:46ch;margin:1.1rem auto 0;font-size:clamp(1rem,.95rem+.3vw,1.16rem)}
+.hero-cta{display:inline-flex;gap:.7rem;margin-top:1.8rem;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.8rem 1.5rem;border-radius:999px;font-weight:700;font-size:.95rem;cursor:pointer;border:1px solid transparent;transition:.28s var(--ease)}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -10px rgba(193,95,60,.7)}
+.btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-2px)}
+.btn-ghost{background:var(--card);border-color:var(--border);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--terracotta);color:var(--terracotta);transform:translateY(-2px)}
+
+/* STAT CARDS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:clamp(1.8rem,3vw,3rem)}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.25rem 1.3rem;text-align:left;box-shadow:var(--shadow-sm);transition:.3s var(--ease)}
+.stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:#dcc6a8}
+.stat .k{font-size:.78rem;color:var(--muted);font-weight:700;letter-spacing:.04em}
+.stat .v{font-family:var(--serif);font-weight:900;font-size:1.32rem;margin:.28rem 0 .18rem;color:var(--terracotta-deep)}
+.stat .n{font-size:.82rem;color:var(--muted)}
+
+/* LANDMARK HUB */
+.landmarks{background:linear-gradient(180deg,transparent,rgba(239,227,208,.5) 45%,transparent)}
+.lm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem}
+@media(max-width:860px){.lm-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.lm-grid{grid-template-columns:1fr}}
+.lm{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);transition:.34s var(--ease);display:flex;flex-direction:column}
+.lm:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:#dcc6a8}
+.lm .ph{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sand-deep)}
+.lm .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.lm:hover .ph img{transform:scale(1.06)}
+.lm .tag{position:absolute;top:.8rem;left:.8rem;background:rgba(42,33,24,.78);color:#fff;font-size:.72rem;font-weight:700;padding:.24rem .66rem;border-radius:999px;backdrop-filter:blur(4px)}
+.lm .body{padding:1.2rem 1.25rem 1.3rem;display:flex;flex-direction:column;flex:1}
+.lm h4{font-family:var(--serif);font-weight:700;font-size:1.08rem;line-height:1.4;margin-bottom:.5rem}
+.lm p{font-size:.88rem;color:var(--muted);line-height:1.6;flex:1}
+.map-btn{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;padding:.55rem .9rem;border-radius:11px;background:var(--jade);color:#fff;font-size:.82rem;font-weight:700;transition:.25s var(--ease);align-self:flex-start}
+.map-btn:hover{background:var(--jade-deep);transform:translateY(-2px)}
+
+/* SCHEDULE */
+.schedule{background:var(--sand-deep)}
+.sched-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.4rem}
+@media(max-width:760px){.sched-grid{grid-template-columns:1fr}}
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.35rem 1.4rem;box-shadow:var(--shadow-sm);cursor:pointer;transition:.32s var(--ease);position:relative;overflow:hidden}
+.day-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--terracotta));opacity:.85}
+.day-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:#dcc6a8}
+.day-card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.7rem;margin-bottom:.6rem}
+.day-no{font-family:var(--serif);font-weight:900;font-size:1.15rem}
+.day-date{font-size:.82rem;color:var(--muted);font-weight:500}
+.chip{font-size:.72rem;font-weight:700;padding:.24rem .66rem;border-radius:999px;white-space:nowrap}
+.chip.hcm{background:#f7e3da;color:#a44a2c}
+.chip.dn{background:#dcece7;color:#2c5c50}
+.chip.hoi{background:#f3e7cf;color:#93701f}
+.chip.back{background:#e9e2d6;color:#6b5c46}
+.day-focus{font-size:.95rem;color:var(--ink);line-height:1.55}
+.day-meta{display:flex;justify-content:space-between;align-items:center;margin-top:.9rem;padding-top:.8rem;border-top:1px dashed var(--border)}
+.stars{color:var(--gold);letter-spacing:.12em;font-size:.9rem}
+.view-link{font-size:.82rem;font-weight:700;color:var(--terracotta);display:inline-flex;gap:.25rem;align-items:center}
+
+/* EXPLORER */
+.explorer{background:linear-gradient(180deg,transparent,rgba(239,227,208,.4) 50%,transparent)}
+.day-tabs{display:flex;gap:.5rem;overflow-x:auto;padding:.4rem 0 .8rem;margin-top:2rem;scrollbar-width:thin}
+.day-tab{flex:0 0 auto;padding:.6rem 1rem;border-radius:14px;border:1px solid var(--border);background:var(--card);font-weight:700;font-size:.85rem;cursor:pointer;color:var(--ink);transition:.25s var(--ease)}
+.day-tab .dd{display:block;font-size:.72rem;font-weight:500;color:var(--muted)}
+.day-tab.active{background:var(--terracotta);color:#fff;border-color:var(--terracotta);box-shadow:0 8px 20px -10px rgba(193,95,60,.7)}
+.day-tab.active .dd{color:rgba(255,255,255,.85)}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.6rem 0 1.6rem}
+.filters .lbl{font-size:.82rem;color:var(--muted);font-weight:700;margin-right:.2rem}
+.fchip{padding:.42rem .9rem;border-radius:999px;border:1px solid var(--border);background:var(--card);font-size:.82rem;font-weight:500;cursor:pointer;transition:.22s var(--ease)}
+.fchip.active{background:var(--ink);color:var(--sand);border-color:var(--ink)}
+.day-head{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.5rem 1.6rem;box-shadow:var(--shadow-sm);margin-bottom:1.6rem}
+.day-head h3{font-family:var(--serif);font-weight:900;font-size:clamp(1.25rem,1rem+1.2vw,1.7rem);line-height:1.25}
+.day-head .hmeta{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin:.7rem 0 .6rem;font-size:.86rem;color:var(--muted)}
+.day-head .hmeta b{color:var(--jade-deep)}
+.day-head p{color:var(--muted);font-size:.96rem}
+.timeline{position:relative;padding-left:2.6rem}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--terracotta),var(--jade),var(--gold));opacity:.4}
+.tl-item{position:relative;margin-bottom:1.1rem}
+.tl-item.hide{display:none}
+.tl-dot{position:absolute;left:-2.6rem;top:2px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.85rem;background:var(--card);border:2px solid var(--border);box-shadow:var(--shadow-sm);z-index:2}
+.tl-card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-sm);transition:.28s var(--ease);overflow:hidden;display:grid;grid-template-columns:150px 1fr}
+.tl-card:hover{transform:translateX(4px);box-shadow:var(--shadow-md);border-color:#dcc6a8}
+.tl-thumb{position:relative;overflow:hidden;background:var(--sand-deep);min-height:130px}
+.tl-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s var(--ease)}
+.tl-card:hover .tl-thumb img{transform:scale(1.07)}
+.tl-body{padding:1rem 1.15rem}
+.tl-time{font-size:.78rem;font-weight:700;color:var(--terracotta);letter-spacing:.03em}
+.tl-title{font-weight:700;margin:.15rem 0 .3rem;font-size:1rem;line-height:1.4}
+.tl-desc{font-size:.88rem;color:var(--muted);line-height:1.6}
+.tl-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem;align-items:center}
+.tl-spot{display:inline-flex;gap:.3rem;align-items:center;font-size:.78rem;color:var(--jade-deep);font-weight:500;background:#e7f0ec;padding:.28rem .6rem;border-radius:999px}
+.tl-map{display:inline-flex;gap:.32rem;align-items:center;font-size:.78rem;font-weight:700;color:#fff;background:var(--sky);padding:.28rem .7rem;border-radius:999px;transition:.22s var(--ease)}
+.tl-map:hover{background:#3a6a8c;transform:translateY(-1px)}
+.type-food{--tc:#c15f3c}.type-spa{--tc:#3d7a6b}.type-sightseeing{--tc:#4a7fa5}.type-shopping{--tc:#c99a3f}
+@media(max-width:560px){.tl-card{grid-template-columns:1fr}.tl-thumb{aspect-ratio:16/9;min-height:0}}
+
+/* BUDGET */
+.budget-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.4rem;margin-top:2.4rem}
+@media(max-width:820px){.budget-grid{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:1.6rem;box-shadow:var(--shadow-sm)}
+.chart-wrap{position:relative;height:290px}
+.chart-center{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;text-align:center}
+.chart-center .cc-k{font-size:.75rem;color:var(--muted);font-weight:700}
+.chart-center .cc-v{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--terracotta-deep)}
+.calc-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.field{flex:1;min-width:130px}
+.field label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.35rem}
+.field input,.field select{width:100%;padding:.6rem .8rem;border:1px solid var(--border);border-radius:12px;background:var(--sand);font-family:inherit;font-size:.95rem;color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--terracotta);outline-offset:1px}
+.total-box{background:linear-gradient(135deg,var(--terracotta),var(--terracotta-deep));color:#fff;border-radius:16px;padding:1.1rem 1.3rem;margin-bottom:1.2rem}
+.total-box .tk{font-size:.8rem;opacity:.9;font-weight:500}
+.total-box .tv{font-family:var(--serif);font-weight:900;font-size:2rem;margin:.1rem 0}
+.total-box .tp{font-size:.82rem;opacity:.9}
+.blist{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.blist li{display:flex;justify-content:space-between;align-items:center;padding:.55rem .2rem;border-bottom:1px dashed var(--border);font-size:.9rem}
+.blist li span:first-child{color:var(--ink)}
+.blist li b{font-family:var(--serif);color:var(--terracotta-deep)}
+
+/* STRATEGY */
+.strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.4rem}
+@media(max-width:820px){.strat-grid{grid-template-columns:1fr}}
+.strat{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.5rem;box-shadow:var(--shadow-sm);transition:.32s var(--ease);position:relative;overflow:hidden}
+.strat:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.strat .emoji{font-size:1.7rem}
+.strat .badge{position:absolute;top:1.2rem;right:1.2rem;font-size:.72rem;font-weight:700;background:var(--sand-deep);color:var(--muted);padding:.24rem .6rem;border-radius:999px}
+.strat h4{font-family:var(--serif);font-weight:700;font-size:1.12rem;margin:.7rem 0 .5rem;line-height:1.4}
+.strat p{font-size:.9rem;color:var(--muted);line-height:1.6}
+.strat .tip{margin-top:.9rem;font-size:.82rem;color:var(--jade-deep);font-weight:500;background:#e7f0ec;padding:.5rem .75rem;border-radius:10px}
+
+/* STAY */
+.stay-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem}
+@media(max-width:760px){.stay-grid{grid-template-columns:1fr}}
+.stay{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.6rem;box-shadow:var(--shadow-sm)}
+.stay .icn{font-size:1.9rem}
+.stay h4{font-family:var(--serif);font-weight:900;font-size:1.25rem;margin:.5rem 0 .2rem}
+.stay .pri{color:var(--terracotta-deep);font-weight:700;font-size:.92rem;margin-bottom:.6rem}
+.stay p{font-size:.9rem;color:var(--muted);margin-bottom:1rem}
+.hotel-row{display:flex;flex-direction:column;gap:.7rem}
+.hotel{background:var(--sand);border:1px solid var(--border);border-radius:12px;padding:.7rem .9rem}
+.hotel .lv{font-size:.76rem;font-weight:700;color:var(--muted)}
+.hotel .nm{font-size:.9rem;font-weight:500;margin-top:.15rem}
+
+/* CHECKLIST */
+.checklist{background:var(--sand-deep)}
+.prog-wrap{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.1rem 1.3rem;margin-top:2rem;box-shadow:var(--shadow-sm)}
+.prog-top{display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;margin-bottom:.6rem}
+.prog-top .pct{color:var(--terracotta);font-family:var(--serif)}
+.prog-bar{height:12px;background:var(--sand-deep);border-radius:999px;overflow:hidden}
+.prog-fill{height:100%;width:0;background:linear-gradient(90deg,var(--jade),var(--terracotta),var(--gold));border-radius:999px;transition:width .5s var(--ease)}
+.check-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.4rem}
+@media(max-width:900px){.check-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.check-grid{grid-template-columns:1fr}}
+.check-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.3rem;box-shadow:var(--shadow-sm)}
+.check-card h4{font-family:var(--serif);font-weight:700;font-size:1rem;margin-bottom:.9rem;display:flex;gap:.5rem;align-items:center}
+.check-item{display:flex;gap:.65rem;align-items:flex-start;padding:.4rem 0;cursor:pointer;font-size:.88rem;line-height:1.45}
+.check-item input{appearance:none;flex:0 0 auto;width:20px;height:20px;border:2px solid var(--border);border-radius:6px;margin-top:2px;cursor:pointer;transition:.2s;position:relative}
+.check-item input:checked{background:var(--jade);border-color:var(--jade)}
+.check-item input:checked::after{content:"✓";position:absolute;inset:0;color:#fff;font-size:.8rem;display:grid;place-items:center;font-weight:700}
+.check-item input:checked + span{color:var(--muted);text-decoration:line-through}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--sand);padding:clamp(3rem,5vw,4.5rem) 0 2.5rem;position:relative;z-index:1}
+footer .f-in{text-align:center}
+footer .f-title{font-family:var(--serif);font-weight:900;font-size:clamp(1.4rem,1rem+2vw,2rem);margin-bottom:.6rem}
+footer .f-sub{color:rgba(246,239,228,.6);max-width:54ch;margin:0 auto 1.6rem;font-size:.95rem}
+footer .f-meta{font-size:.78rem;color:rgba(246,239,228,.4);margin-top:2rem;border-top:1px solid rgba(246,239,228,.12);padding-top:1.6rem}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="flag">🇻🇳</span>越南雙城慢活指南</a>
+    <div class="nav-links">
+      <a href="#landmarks">地圖與照片</a>
+      <a href="#schedule">行程總覽</a>
+      <a href="#explorer">每日行程</a>
+      <a href="#budget">預算試算</a>
+      <a href="#strategy">優化攻略</a>
+      <a href="#stay">住宿選房</a>
+      <a href="#checklist">行前清單</a>
+    </div>
+    <button class="burger" id="burger" aria-label="選單">☰</button>
+  </div>
+  <div id="mnav" class="wrap">
+    <a href="#landmarks">地圖與照片</a><a href="#schedule">行程總覽</a><a href="#explorer">每日行程</a><a href="#budget">預算試算</a>
+    <a href="#strategy">優化攻略</a><a href="#stay">住宿選房</a><a href="#checklist">行前清單</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-grad"></div>
+  <div class="wrap hero-in">
+    <span class="date-pill">📅 2027/02/27 (六) ～ 03/06 (六) · 8 天 7 夜完整實景版</span>
+    <h1>胡志明市 <span style="color:var(--muted);font-weight:500">×</span><br><span class="hl">峴港會安</span> 慢活雙城</h1>
+    <p class="hero-sub">整合景點照片與 Google Maps 實境導航連結！法式建築歷史 × 濱海渡假 SPA × 會安燈籠夜景，精準鎖定週五龍橋噴火秀，讓每一站都能隨手點擊開啟地圖。</p>
+    <div class="hero-cta">
+      <a href="#landmarks" class="btn btn-primary">🗺️ 探索景點地圖 Hub</a>
+      <a href="#explorer" class="btn btn-ghost">每日行程 →</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">停留城市</div><div class="v">胡志明 3 晚 + 峴港 4 晚</div><div class="n">含會安古城夕陽夜景</div></div>
+      <div class="stat"><div class="k">預算建議</div><div class="v">NT$ 32,000 ~ 35,000</div><div class="n">含四／五星飯店 + 4 次 SPA</div></div>
+      <div class="stat"><div class="k">核心亮點</div><div class="v">黃金佛手橋 + 龍橋秀</div><div class="n">週五 21:00 限定噴火秀</div></div>
+      <div class="stat"><div class="k">導航功能</div><div class="v">Google Maps 實測</div><div class="n">含 Place ID 一鍵定位</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="landmarks" id="landmarks">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Landmark & Map Hub</span>
+      <h2 class="sec-title">🗺️ 精選景點圖庫與導航</h2>
+      <p class="sec-lead">精選雙城核心景點的實境照片與 Google Maps 定位連結。點擊地圖按鈕即可直接啟動手機 Google Maps App 或電腦網頁導航，快速安排點對點路線。</p>
+    </div>
+    <div class="lm-grid" id="lmGrid"></div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Master Schedule</span>
+      <h2 class="sec-title">🗓️ 八日行程總覽</h2>
+      <p class="sec-lead">全局視角快速掌握每日主題城區、核心重點與行程強度。點擊任一天卡片即可跳至詳細時間軸與地圖連結。</p>
+    </div>
+    <div class="sched-grid" id="schedGrid"></div>
+  </div>
+</section>
+
+<section class="explorer" id="explorer">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Timeline & Map Explorer</span>
+      <h2 class="sec-title">🧭 每日行程與地圖連結</h2>
+      <p class="sec-lead">點擊日期切換行程。每一個活動卡片均整合照片預覽與 📍 Google Maps 定位連結，方便你在旅途中隨時開啟導航。</p>
+    </div>
+    <div class="day-tabs" id="dayTabs"></div>
+    <div class="filters">
+      <span class="lbl">活動篩選：</span>
+      <button class="fchip active" data-f="all">全部類型</button>
+      <button class="fchip" data-f="food">🍜 美食/咖啡</button>
+      <button class="fchip" data-f="spa">💆 SPA/放鬆</button>
+      <button class="fchip" data-f="sightseeing">🏛️ 景點/歷史</button>
+      <button class="fchip" data-f="shopping">🛍️ 購物手信</button>
+    </div>
+    <div class="day-head" id="dayHead"></div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section class="budget" id="budget">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Budget Calculator</span>
+      <h2 class="sec-title">💰 預算結構與試算</h2>
+      <p class="sec-lead">將行程各項支出視覺化。透過環圈圖瞭解費用分布，輸入同行人數與幣別，動態試算團隊總費用與各項預算。</p>
+    </div>
+    <div class="budget-grid">
+      <div class="panel reveal">
+        <div class="chart-wrap">
+          <canvas id="budgetChart"></canvas>
+          <div class="chart-center"><div><div class="cc-k">單人估算</div><div class="cc-v" id="chartCenter">NT$ 32,500</div></div></div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <div class="calc-row">
+          <div class="field"><label for="ppl">🧮 同行人數 (人)</label><input type="number" id="ppl" value="2" min="1" max="20" /></div>
+          <div class="field"><label for="cur">顯示幣別</label><select id="cur"><option value="NTD">新台幣 (NTD)</option><option value="VND">越南盾 (VND)</option><option value="USD">美金 (USD)</option></select></div>
+        </div>
+        <div class="total-box"><div class="tk">全團預估總預算（不含個人購物）</div><div class="tv" id="totalV">NT$ 65,000</div><div class="tp" id="perV">人均估算：NT$ 32,500</div></div>
+        <ul class="blist" id="blist"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strategy" id="strategy">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Strategy & Tips</span>
+      <h2 class="sec-title">💡 專業優化策略</h2>
+      <p class="sec-lead">收錄行程評估中的核心優化亮點：龍橋噴火時間微調、聖母大教堂維修實況、巴拿山避寒策略——幫你避開所有雷點。</p>
+    </div>
+    <div class="strat-grid" id="stratGrid"></div>
+  </div>
+</section>
+
+<section class="stay" id="stay">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Accommodation</span>
+      <h2 class="sec-title">🏨 雙城住宿選房指南</h2>
+      <p class="sec-lead">胡志明市第一郡與峴港美溪沙灘的住宿分區參考，涵蓋高 CP 值四星與精品五星選擇。</p>
+    </div>
+    <div class="stay-grid" id="stayGrid"></div>
+  </div>
+</section>
+
+<section class="checklist" id="checklist">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Packing Checklist</span>
+      <h2 class="sec-title">🧳 出發前準備清單</h2>
+      <p class="sec-lead">互動式檢查清單，確認簽證、換匯、網卡與行李整備。勾選後進度條即時更新，為出國做最後把關。</p>
+    </div>
+    <div class="prog-wrap reveal">
+      <div class="prog-top"><span>行前準備完成度</span><span class="pct" id="progPct">0% (0/12)</span></div>
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+    </div>
+    <div class="check-grid" id="checkGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-in">
+    <div class="f-title">🇻🇳 2027 越南雙城 8 天 7 夜完整實景手冊</div>
+    <p class="f-sub">設計原則：不趕路、留足咖啡與按摩時間、精準對接峴港龍橋週五噴火秀、直連 Google Maps 實景地圖。祝旅途平安、慢活盡興。</p>
+    <div class="f-meta">Bon Voyage · 景點照片為示意圖 · 票價與匯率僅供參考，出發前請再次確認地圖與營業時間</div>
+  </div>
+</footer>
+
+<script>
+const LANDMARKS=[
+  {city:"胡志明市",name:"西貢中央郵局 (Saigon Central Post Office)",desc:"百年哥德式與法式拱廊建築，內部保存宏偉雕花與舊時代地圖，可在現場寄出明信片。",img:"https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJRxocgI4udTERspsje3PV-LA"},
+  {city:"胡志明市",name:"新定教堂 (粉紅教堂 Tan Dinh Church)",desc:"夢幻粉紅色羅馬復興式建築，對面咖啡廳頂樓是拍攝教堂正面全景的絕佳視角。",img:"https://images.unsplash.com/photo-1563884072595-2eb4d27161dc?auto=format&fit=crop&w=800&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJZ_ShIDMvdTERgrkibFMAu3g"},
+  {city:"峴港巴拿山",name:"巴拿山黃金佛手橋 (Golden Bridge)",desc:"海拔 1400 公尺之上的震撼巨手托橋，早起安排第一班纜車能完美避開團客雲海照片。",img:"https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJj9PFGT33QTERDbUKRxFsdmM"},
+  {city:"會安",name:"會安古城 (Hoi An Ancient Town)",desc:"世界文化遺產，黃牆老屋與懷河燈籠夜景交織。黃昏搭木船放水燈感受浪漫氛圍。",img:"https://images.unsplash.com/photo-1552353617-3bfd679b3bdd?auto=format&fit=crop&w=800&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJE3yuYgAPQjERnAMwgxxwoN4"},
+  {city:"峴港",name:"美溪沙灘 (My Khe Beach)",desc:"評為全球最美沙灘之一，擁有綿長白沙與湛藍海景，沿岸聚集高品質度假飯店。",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJ4w7694IXQjERrFXucqKL--o"},
+  {city:"峴港",name:"峴港龍橋 (Dragon Bridge)",desc:"橫跨韓江的地標，每週五、六、日 21:00 準時舉行震撼的龍頭噴火與噴水表演。",img:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJL1GKWJYZQjERLrEGqlK2kwQ"}
+];
+const DATA = {
+  1:{city:"胡志明市",cls:"hcm",date:"2/27 六",title:"Day 1 (2/27 六) 台灣 ➔ 胡志明：輕鬆抵達，沉浸南國夜色",stay:"第一郡 (District 1) 阮惠大道 / 濱城市場周邊",intensity:"★☆☆☆☆",intensityText:"輕鬆無負擔",focus:"抵達 Check-in ➔ 首場越式 SPA ➔ 阮惠步行街散步",summary:"第一天不排硬性景點，讓身體從飛行狀態切換至南國渡假模式。著重於飯店 Check-in、第一場紓壓按摩與夜間河畔散步。",items:[
+    {time:"15:00 - 16:30",type:"sightseeing",title:"抵達胡志明新山一機場 (SGN) ➔ 飯店 Check-in",desc:"搭乘 Grab（車資約 12-18 萬VND）直達第一郡飯店辦理入住手續並稍作整理。",spot:"Ho Chi Minh City District 1",img:"https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=District+1+Ho+Chi+Minh+City"},
+    {time:"17:00 - 18:30",type:"spa",title:"第一場越式放鬆按摩 (60-90 分鐘)",desc:"消除搭機疲勞。推薦店家：Miu Miu Spa（需預約）或 Temple Tree Spa。",spot:"Miu Miu Spa",img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Miu+Miu+Spa+Ho+Chi+Minh"},
+    {time:"19:00 - 20:30",type:"food",title:"經典越南美食晚餐",desc:"享用首餐：經典河粉 (Phở)、烤肉米線 (Bún Chả) 或越南煎餅 (Bánh Xèo)。推薦：Phở Hòa Pasteur。",spot:"Phở Hòa Pasteur",img:"https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Pho+Hoa+Pasteur+Ho+Chi+Minh"},
+    {time:"20:30 - 22:00",type:"sightseeing",title:"阮惠步行街與咖啡公寓夜漫步",desc:"從市政廳漫步至阮惠街，遠眺點燈的咖啡公寓 (The Cafe Apartments) 與西貢河涼爽夜風。",spot:"The Cafe Apartments",img:"https://images.unsplash.com/photo-1563884072595-2eb4d27161dc?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=The+Cafe+Apartments+Ho+Chi+Minh"}]},
+  2:{city:"胡志明市",cls:"hcm",date:"2/28 日",title:"Day 2 (2/28 日) 胡志明：法式經典建築與歷史探索",stay:"第一郡 (District 1)",intensity:"★★★☆☆",intensityText:"經典市區巡禮",focus:"中央郵局與書街 ➔ 聖母院外觀 ➔ 統一宮 ➔ 濱城市場 ➔ 高空酒吧",summary:"集中走訪第一郡核心歷史建築。下午安排回飯店避暑，晚上前往高空酒吧俯瞰西貢夜景。",items:[
+    {time:"08:30 - 09:30",type:"food",title:"道地早餐與滴漏咖啡",desc:"享用飯店早餐或街頭品嚐冰煉乳咖啡 (Cà phê sữa đá) 與越南法包。",spot:"Trung Nguyen Legend Cafe",img:"https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Trung+Nguyen+Legend+Ho+Chi+Minh"},
+    {time:"09:30 - 10:15",type:"sightseeing",title:"西貢中央郵局與聖母大教堂",desc:"參觀百年哥德式中央郵局並寄送明信片；聖母大教堂目前整修中，於外圍拍照感受巴黎風情。",spot:"Saigon Central Post Office",img:"https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJRxocgI4udTERspsje3PV-LA"},
+    {time:"10:15 - 11:30",type:"food",title:"胡志明書街 (Book Street) 早茶漫步",desc:"緊鄰郵局的林蔭步道，聚集多家精緻書店與露天咖啡館，氣氛極佳。",spot:"Ho Chi Minh Book Street",img:"https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Ho+Chi+Minh+Book+Street"},
+    {time:"11:30 - 13:00",type:"food",title:"午餐：精緻法式/越式料理",desc:"推薦：The Refinery（隱藏於舊鴉片工廠內的法式餐館）或 Propaganda Bistro。",spot:"The Refinery Saigon",img:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=The+Refinery+Saigon"},
+    {time:"13:30 - 15:30",type:"sightseeing",title:"統一宮 (Independence Palace)",desc:"前南越總統府，重點參觀保存完好的 1970 年代建築家具與地下密室戰情中心。",spot:"Independence Palace",img:"https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJL0dwVTgvdTERao3t8B1Jhxc"},
+    {time:"15:30 - 17:00",type:"shopping",title:"濱城市場體驗與周邊換匯",desc:"體驗在地市場活力，比價果乾咖啡豆；若需換匯可至對面 Ha Tam 金店。",spot:"Ben Thanh Market",img:"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJTeYpMT8vdTERMH8sUnkta40"},
+    {time:"17:00 - 19:00",type:"spa",title:"回飯店沖涼與午後休息",desc:"東南亞午後氣溫高，回飯店沖涼、游泳小憩 1.5 小時，補足體力。",spot:"District 1 Hotel Pool",img:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=District+1+Hotel+Ho+Chi+Minh"},
+    {time:"19:30 - 21:30",type:"food",title:"晚餐與 Rooftop 高空酒吧夜景",desc:"推薦：Chill Skybar 或 Social Club Rooftop Bar，俯瞰第一郡與遠眺 Landmark 81。",spot:"Chill Skybar",img:"https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Chill+Skybar+Ho+Chi+Minh"}]},
+  3:{city:"胡志明市",cls:"hcm",date:"3/1 一",title:"Day 3 (3/1 一) 胡志明：歷史反思、粉紅教堂與購物 SPA",stay:"第一郡 (District 1)",intensity:"★★☆☆☆",intensityText:"文化購物放鬆",focus:"戰爭遺蹟博物館 ➔ 粉紅教堂 ➔ 精品咖啡 ➔ 百貨採買 ➔ 高階精油 SPA",summary:"參觀具震撼力的戰爭博物館與夢幻粉紅教堂，下午前往高檔百貨避暑購物，並享受 90 分鐘高階 SPA。",items:[
+    {time:"10:00 - 12:00",type:"sightseeing",title:"戰爭遺蹟博物館 (War Remnants Museum)",desc:"胡志明市最具震撼力的博物館，展出越戰照片與歷史真實重現，非常值得深度參觀。",spot:"War Remnants Museum",img:"https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJzwg3ojAvdTERqnQUK99K2Xw"},
+    {time:"12:00 - 13:30",type:"food",title:"越式家常午餐",desc:"於博物館周邊享用高評價越式家常菜（如 Secret Garden 秘境花園餐廳）。",spot:"Secret Garden Restaurant",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Secret+Garden+Home-cooked+Vietnamese+Restaurant"},
+    {time:"13:30 - 14:30",type:"sightseeing",title:"新定教堂 (粉紅教堂)",desc:"少女心爆發的夢幻粉紅教堂，拍照約 30 分鐘（對面 Cong Caphe 頂樓可拍全景）。",spot:"Tan Dinh Church",img:"https://images.unsplash.com/photo-1563884072595-2eb4d27161dc?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJZ_ShIDMvdTERgrkibFMAu3g"},
+    {time:"14:30 - 16:00",type:"food",title:"網美精品咖啡體驗",desc:"品嚐椰子冰淇淋咖啡或蛋咖啡。推薦：Okkio Caffe 或 The Workshop Coffee。",spot:"Okkio Caffe",img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Okkio+Caffe+Ho+Chi+Minh"},
+    {time:"16:00 - 18:00",type:"shopping",title:"高檔商場 Shopping 採買",desc:"返回第一郡前往 Saigon Centre / Takashimaya 百貨，享有快適冷氣與超市採買手信。",spot:"Saigon Centre",img:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Saigon+Centre+Takashimaya"},
+    {time:"18:30 - 20:00",type:"spa",title:"高規格 90-120 分鐘 SPA",desc:"享受頂級精油按摩。推薦：Noir Spa 或 L'Apothiquaire Spa。",spot:"L'Apothiquaire Spa",img:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=L'Apothiquaire+Spa+Ho+Chi+Minh"}]},
+  4:{city:"峴港",cls:"dn",date:"3/2 二",title:"Day 4 (3/2 二) 胡志明 ➔ 峴港：飛往海濱天堂，美溪沙灘放鬆",stay:"美溪沙灘 (My Khe Beach) 第一排",intensity:"★☆☆☆☆",intensityText:"海景渡假展開",focus:"飛往峴港 ➔ 美溪海灘放空 ➔ 海鮮大餐 ➔ 韓江夜光漫步",summary:"搭乘國內線飛往峴港。午後漫步全球最美沙灘之一的美溪沙灘，晚上享用豐富海鮮大餐並沿韓江散步。",items:[
+    {time:"10:30 - 12:00",type:"sightseeing",title:"國內線航班：胡志明 (SGN) ➔ 峴港 (DAD)",desc:"飛行時間約 1 小時 20 分鐘，抵達後搭 Grab (15-20分鐘) 直達美溪海灘飯店。",spot:"Da Nang International Airport",img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Da+Nang+International+Airport"},
+    {time:"13:30 - 15:00",type:"food",title:"現挑現秤海鮮午餐",desc:"抵達峴港第一餐獻給道地海鮮！推薦餐廳：Mơ Quán 或 Hải Sản Bé Mặn。",spot:"Hải Sản Bé Mặn",img:"https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Hai+San+Be+Man+Da+Nang"},
+    {time:"15:30 - 18:00",type:"spa",title:"美溪沙灘 (My Khe Beach) 與飯店無邊際泳池",desc:"被評為全球最美沙灘之一，午後踏浪放空，享受海風。",spot:"My Khe Beach",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJ4w7694IXQjERrFXucqKL--o"},
+    {time:"18:30 - 20:30",type:"sightseeing",title:"韓江河岸夜景與龍橋散步",desc:"沿韓江散步欣賞龍橋燈光與愛意碼頭夜景（備註：週二無噴火秀，噴火秀已鎖定週五！）。",spot:"Dragon Bridge Da Nang",img:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJL1GKWJYZQjERLrEGqlK2kwQ"}]},
+  5:{city:"峴港",cls:"dn",date:"3/3 三",title:"Day 5 (3/3 三) 峴港：巴拿山一日遊，漫步黃金佛手橋",stay:"美溪沙灘 (My Khe Beach)",intensity:"★★★★☆",intensityText:"山景樂園一日遊",focus:"直奔巴拿山（黃金佛手橋） ➔ 法國村 ➔ 纜車體驗 ➔ 飯店休養",summary:"早起直奔巴拿山黃金佛手橋避開人潮。搭乘世界紀錄纜車、走訪法國村與花園，午後回飯店沖涼休息。",items:[
+    {time:"07:45 - 08:45",type:"sightseeing",title:"專車前往巴拿山 (Sun World Ba Na Hills)",desc:"車程約 45-60 分鐘。建議預先預訂含接送與纜車門票之套票。",spot:"Sun World Ba Na Hills",img:"https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Sun+World+Ba+Na+Hills"},
+    {time:"09:00 - 10:30",type:"sightseeing",title:"直奔黃金佛手橋 (Golden Bridge)",desc:"搭乘纜車上山，第一站直奔巨手托橋，早起完美避開團客人潮，拍出空靈絕美照。",spot:"Golden Bridge Ba Na Hills",img:"https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJj9PFGT33QTERDbUKRxFsdmM"},
+    {time:"10:30 - 15:00",type:"sightseeing",title:"愛情花園、法國村與 Fantasy Park",desc:"漫步哥德式法國村、酒窖，並可體驗斜坡滑道車 (Alpine Coaster) 或室內遊樂設施。",spot:"French Village Ba Na Hills",img:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=French+Village+Ba+Na+Hills"},
+    {time:"16:00 - 17:00",type:"spa",title:"纜車下山與回飯店休養",desc:"巴拿山步行較多，返抵飯店後安排泡澡或游泳放鬆腳部肌肉。",spot:"My Khe Beach Hotel Pool",img:"https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=My+Khe+Beach+Hotel+Da+Nang"}]},
+  6:{city:"峴港/會安",cls:"hoi",date:"3/4 四",title:"Day 6 (3/4 四) 峴港 ➔ 會安：山茶半島靈應寺與會安古城燈籠夜景",stay:"美溪沙灘 (My Khe Beach)",intensity:"★★★☆☆",intensityText:"古城燈籠夜景",focus:"山茶半島靈應寺 ➔ 午後回房充飽電 ➔ 會安古城黃昏與燈籠夜景",summary:"上午參觀靈應寺俯瞰海岸線，午後務必在飯店休息充飽電，下午四點進會安古城，一次收藏黃昏與萬家燈火。",items:[
+    {time:"10:00 - 11:30",type:"sightseeing",title:"山茶半島與靈應寺 (Linh Ung Pagoda)",desc:"參觀全越南最高白衣觀音聖像，俯瞰新月形海岸線與湛藍大海。",spot:"Linh Ung Pagoda Son Tra",img:"https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJSSEsFwAXQjERa9hxJ6LOx2A"},
+    {time:"13:30 - 15:30",type:"spa",title:"關鍵回房休息充電時間",desc:"午後避開烈日，在飯店充飽電，準備迎接精采的會安夜生活。",spot:"My Khe Beach Hotel",img:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=My+Khe+Beach+Resort+Da+Nang"},
+    {time:"16:30 - 18:00",type:"sightseeing",title:"會安古城 (Hoi An) 黃昏漫步",desc:"欣賞黃牆老屋、日本橋，並在懷河畔古厝咖啡廳喝下午茶看夕陽落山。",spot:"Hoi An Ancient Town",img:"https://images.unsplash.com/photo-1552353617-3bfd679b3bdd?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJE3yuYgAPQjERnAMwgxxwoN4"},
+    {time:"18:00 - 19:30",type:"food",title:"會安特色美食晚餐",desc:"品嚐會安三大名吃：高樓麵 (Cao Lầu)、白玫瑰 (White Rose)、餛飩。推薦：Morning Glory Original。",spot:"Morning Glory Original Hoi An",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Morning+Glory+Original+Hoi+An"},
+    {time:"19:30 - 21:00",type:"sightseeing",title:"會安燈籠海夜景與懷河放水燈",desc:"體驗古城萬家燈火的夢幻時刻，可自費搭乘木船在懷河放水燈祈福，逛會安夜市。",spot:"Hoai River Hoi An",img:"https://images.unsplash.com/photo-1552353617-3bfd679b3bdd?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Hoai+River+Hoi+An"}]},
+  7:{city:"峴港",cls:"dn",date:"3/5 五",title:"Day 7 (3/5 五) 峴港：極致放鬆渡假日 ➔ 週五限定龍橋噴火秀！",stay:"美溪沙灘 (My Khe Beach)",intensity:"★☆☆☆☆",intensityText:"完全放鬆壓軸秀",focus:"自然醒 ➔ 韓市場採買 ➔ 海景 SPA ➔ 🔥 21:00 龍橋噴火秀 (週五限定)",summary:"睡到自然醒，前往韓市場採買伴手禮與高階海景 SPA。晚上 21:00 準時觀賞週五限定的龍橋噴火與噴水秀！",items:[
+    {time:"10:30 - 12:00",type:"spa",title:"自然醒與美溪海灘漫步",desc:"在美溪海灘享受南國陽光，踏浪放空。",spot:"My Khe Beach Da Nang",img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJ4w7694IXQjERrFXucqKL--o"},
+    {time:"13:30 - 15:30",type:"shopping",title:"韓市場 (Han Market) 手信大採買",desc:"腰果、芒果乾、越南咖啡豆、藤編包一站購足（記得適度殺價）。",spot:"Han Market Da Nang",img:"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJHZakNa8ZQjERWNFToM16eB4"},
+    {time:"16:00 - 18:00",type:"spa",title:"高階海景 SPA 90-120 分鐘",desc:"安排旅程最後一次頂級 SPA。推薦：Herbal Spa 或 Salem Spa Garden。",spot:"Herbal Spa Da Nang",img:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Herbal+Spa+Da+Nang"},
+    {time:"19:00 - 20:30",type:"food",title:"旅程告別豪華晚餐",desc:"享用精緻海鮮或高空海景餐廳（如 The Deckhouse 或精品燒肉）。",spot:"Seafood Restaurant Da Nang",img:"https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Seafood+Restaurant+My+Khe+Beach+Da+Nang"},
+    {time:"21:00 - 21:15",type:"sightseeing",title:"🔥 重頭戲：龍橋噴火/噴水表演 (週五限定)",desc:"每週五 21:00 準時舉行！龍頭會噴出大火與水霧，現場氣氛熱鬧無比（20:45 前佔位）。",spot:"Dragon Bridge Fire Show",img:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/place/?q=place_id:ChIJL1GKWJYZQjERLrEGqlK2kwQ"}]},
+  8:{city:"回程",cls:"back",date:"3/6 六",title:"Day 8 (3/6 六) 峴港 ➔ 台灣：帶著滿滿回憶返家",stay:"—",intensity:"★☆☆☆☆",intensityText:"溫馨返家",focus:"晨間海灘散步 ➔ 越南法包早餐 ➔ 前往峴港機場 (DAD) ➔ 溫馨的家",summary:"晨間海灘散步、享用最後一份越南法包與精品咖啡，輕鬆前往距離市區僅 15 分鐘的峴港機場搭機返台。",items:[
+    {time:"08:30 - 10:00",type:"food",title:"晨間海邊散步與悠閒早餐",desc:"享受最後的南國陽光與道地越南法包 (Bánh Mì)。",spot:"Bánh Mì Phượng Da Nang",img:"https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Banh+Mi+Da+Nang"},
+    {time:"11:30 - 13:00",type:"food",title:"網美咖啡廳巡禮",desc:"前往 43 Factory Coffee Roasters 享受最後的越南精品手沖咖啡。",spot:"43 Factory Coffee Roasters",img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=43+Factory+Coffee+Roasters+Da+Nang"},
+    {time:"13:30 - 14:00",type:"sightseeing",title:"前往峴港國際機場 (DAD) ➔ 台灣",desc:"峴港機場距離市區僅 15-20 分鐘車程，輕鬆辦理通關返家。",spot:"Da Nang Airport Terminal",img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=400&q=80",map:"https://www.google.com/maps/search/?api=1&query=Da+Nang+International+Airport"}]}
+};
+const TYPE_ICON={food:"🍜",spa:"💆",sightseeing:"🏛️",shopping:"🛍️"};
+const cityAccent={hcm:"#c15f3c",dn:"#3d7a6b",hoi:"#c99a3f",back:"#7a6a56"};
+const esc=s=>s.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+
+/* LANDMARK HUB */
+const lmGrid=document.getElementById('lmGrid');
+LANDMARKS.forEach(l=>{const el=document.createElement('div');el.className='lm reveal';
+  el.innerHTML=`<div class="ph"><span class="tag">📍 ${l.city}</span><img loading="lazy" src="${esc(l.img)}" alt="${esc(l.name)}"/></div>
+    <div class="body"><h4>${l.name}</h4><p>${l.desc}</p>
+    <a class="map-btn" href="${esc(l.map)}" target="_blank" rel="noopener">🗺️ Google Maps 開啟定位</a></div>`;
+  lmGrid.appendChild(el);});
+
+/* SCHEDULE CARDS */
+const schedGrid=document.getElementById('schedGrid');
+Object.entries(DATA).forEach(([n,d])=>{
+  const el=document.createElement('div');el.className='day-card reveal';el.style.setProperty('--accent',cityAccent[d.cls]);
+  el.innerHTML=`<div class="top"><div><div class="day-no">Day ${n}</div><div class="day-date">${d.date}</div></div><span class="chip ${d.cls}">${d.city}</span></div>
+    <div class="day-focus">${d.focus}</div>
+    <div class="day-meta"><span class="stars">${d.intensity}</span><span class="view-link">查看詳情 →</span></div>`;
+  el.addEventListener('click',()=>{selectDay(+n);document.getElementById('explorer').scrollIntoView({behavior:'smooth'});});
+  schedGrid.appendChild(el);
+});
+
+/* DAY TABS */
+const dayTabs=document.getElementById('dayTabs');
+Object.entries(DATA).forEach(([n,d])=>{
+  const b=document.createElement('button');b.className='day-tab'+(n==="1"?' active':'');b.dataset.day=n;
+  b.innerHTML=`Day ${n}<span class="dd">${d.date}</span>`;
+  b.addEventListener('click',()=>selectDay(+n));dayTabs.appendChild(b);
+});
+let activeDay=1,activeFilter='all';
+function selectDay(n){activeDay=n;document.querySelectorAll('.day-tab').forEach(t=>t.classList.toggle('active',+t.dataset.day===n));renderDay();}
+function renderDay(){
+  const d=DATA[activeDay];
+  document.getElementById('dayHead').innerHTML=`<h3>${d.title}</h3>
+    <div class="hmeta"><span>🏙️ <b>${d.city}</b></span><span>🏨 ${d.stay}</span><span>⚡ 強度：<b>${d.intensity}</b>（${d.intensityText}）</span></div>
+    <p>${d.summary}</p>`;
+  const tl=document.getElementById('timeline');tl.innerHTML='';
+  d.items.forEach(it=>{
+    const hide=activeFilter!=='all'&&it.type!==activeFilter;
+    const el=document.createElement('div');el.className='tl-item type-'+it.type+(hide?' hide':'');
+    el.innerHTML=`<div class="tl-dot" style="border-color:var(--tc);color:var(--tc)">${TYPE_ICON[it.type]}</div>
+      <div class="tl-card"><div class="tl-thumb"><img loading="lazy" src="${esc(it.img)}" alt="${esc(it.title)}"/></div>
+      <div class="tl-body"><div class="tl-time">${it.time}</div><div class="tl-title">${it.title}</div>
+      <div class="tl-desc">${it.desc}</div>
+      <div class="tl-actions"><span class="tl-spot">📍 ${it.spot}</span>
+      <a class="tl-map" href="${esc(it.map)}" target="_blank" rel="noopener">🗺️ 開啟 Google 地圖</a></div></div></div>`;
+    tl.appendChild(el);
+  });
+}
+document.querySelectorAll('.fchip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.fchip').forEach(x=>x.classList.remove('active'));c.classList.add('active');
+  activeFilter=c.dataset.f;renderDay();
+}));
+renderDay();
+
+/* BUDGET */
+const BUDGET=[
+  {k:"✈️ 台灣-越南 來回國際機票",v:19000,c:"#c15f3c"},
+  {k:"✈️ 胡志明-峴港 國內線機票",v:4000,c:"#e08a56"},
+  {k:"🏨 7晚住宿 (四/五星雙人房分攤)",v:22000,c:"#3d7a6b"},
+  {k:"🍽️ 美食餐飲 (含2頓海鮮大餐)",v:12000,c:"#4a7fa5"},
+  {k:"💆 SPA 按摩 (4場體驗)",v:5500,c:"#c99a3f"},
+  {k:"🎟️ 門票/交通Grab/簽證網卡",v:2500,c:"#8a7c66"}
+];
+const BASE_TOTAL=BUDGET.reduce((s,b)=>s+b.v,0);
+const PER_PERSON=BASE_TOTAL/2;
+const RATES={NTD:1,VND:790,USD:1/31.5};
+const SYM={NTD:"NT$",VND:"₫",USD:"US$"};
+function fmt(v,cur){const x=Math.round(v*RATES[cur]);return SYM[cur]+" "+x.toLocaleString('en-US');}
+let chart;
+function initChart(){
+  const ctx=document.getElementById('budgetChart');
+  chart=new Chart(ctx,{type:'doughnut',data:{labels:BUDGET.map(b=>b.k),datasets:[{data:BUDGET.map(b=>b.v),backgroundColor:BUDGET.map(b=>b.c),borderColor:'#fffaf3',borderWidth:3,hoverOffset:8}]},
+    options:{cutout:'68%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+'：'+Math.round(c.raw/BASE_TOTAL*100)+'%'}}}}});
+}
+function calcBudget(){
+  const cur=document.getElementById('cur').value;
+  let ppl=parseInt(document.getElementById('ppl').value)||1;ppl=Math.max(1,Math.min(20,ppl));
+  const total=PER_PERSON*ppl;
+  document.getElementById('totalV').textContent=fmt(total,cur);
+  document.getElementById('perV').textContent='人均估算：'+fmt(PER_PERSON,cur);
+  document.getElementById('chartCenter').textContent=fmt(PER_PERSON,cur);
+  const list=document.getElementById('blist');list.innerHTML='';
+  BUDGET.forEach(b=>{const scaled=b.v/2*ppl;const li=document.createElement('li');
+    li.innerHTML=`<span>${b.k}</span><b>${fmt(scaled,cur)}</b>`;list.appendChild(li);});
+}
+document.getElementById('ppl').addEventListener('input',calcBudget);
+document.getElementById('cur').addEventListener('change',calcBudget);
+initChart();calcBudget();
+
+/* STRATEGY */
+const STRAT=[
+  {emoji:"🔥",badge:"Day 7 (週五)",h:"峴港龍橋噴火/噴水秀精準對接",p:"龍橋噴火秀時間為週五、六、日 21:00 準時舉行。特將重頭戲調整至 Day 7 (3/5 週五)，完美作為旅程最後一夜的震撼壓軸！",tip:"📌 建議於 20:45 前抵達龍頭周邊或河岸景觀咖啡館佔位。",map:"https://www.google.com/maps/place/?q=place_id:ChIJL1GKWJYZQjERLrEGqlK2kwQ"},
+  {emoji:"🏛️",badge:"Day 2 (週日)",h:"西貢聖母大教堂整修拍照視角",p:"聖母大教堂目前正進行大規模工程，外圍設有鷹架與圍欄，內部暫不開放。建議心理預期調整為「外觀合照」，可將重點放在對面西貢中央郵局與緊鄰的胡志明書街。",tip:"📷 可順路步行 5 分鐘至胡志明市歌劇院或市政廳拍攝法式建築。",map:"https://www.google.com/maps/place/?q=place_id:ChIJRxocgI4udTERspsje3PV-LA"},
+  {emoji:"🌉",badge:"Day 5 (週三)",h:"巴拿山黃金佛手橋攻頂策略",p:"安排 07:45 出發直奔黃金佛手橋能完美避開團客大軍。山頂氣溫比平地低約 3~5°C，且午後容易起霧，請隨身攜帶薄外套防風。",tip:"🎟️ 建議預先購買含專車接送與纜車門票的電子套票。",map:"https://www.google.com/maps/place/?q=place_id:ChIJj9PFGT33QTERDbUKRxFsdmM"}
+];
+const stratGrid=document.getElementById('stratGrid');
+STRAT.forEach(s=>{const el=document.createElement('div');el.className='strat reveal';
+  el.innerHTML=`<span class="badge">${s.badge}</span><div class="emoji">${s.emoji}</div><h4>${s.h}</h4><p>${s.p}</p><div class="tip">${s.tip}</div>
+    <a class="map-btn" href="${esc(s.map)}" target="_blank" rel="noopener">🗺️ 地圖定位</a>`;
+  stratGrid.appendChild(el);});
+
+/* STAY */
+const STAY=[
+  {icn:"🏙️",city:"胡志明市（Day 1～3，共 3 晚）",pri:"首選：第一郡 (District 1) 核心三角區",p:"建議鎖定「阮惠大道 ➔ 歌劇院 ➔ 濱城市場」範圍內，步行即可抵達景點與換匯金店。",hotels:[["高 CP 值四星 NT$ 2,000~3,200/晚","Silverland Yen Hotel、Liberty Central Saigon"],["精品五星 NT$ 3,500~5,500/晚","The Myst Dong Khoi、Hotel des Arts Saigon"]]},
+  {icn:"🏖️",city:"峴港（Day 4～7，共 4 晚）",pri:"首選：美溪沙灘 (My Khe Beach) 第一排",p:"享受全球最美海灘之一，飯店設施較佳，Day 4 與 Day 7 保留足夠時間在飯店泳池與海灘放空。",hotels:[["度假四星 NT$ 2,000~3,000/晚","TMS Hotel Da Nang Beach、Haian Beach Hotel"],["海景五星 NT$ 3,500~5,500/晚","Radisson Hotel Danang、Sala Danang Beach"]]}
+];
+const stayGrid=document.getElementById('stayGrid');
+STAY.forEach(s=>{const el=document.createElement('div');el.className='stay reveal';
+  el.innerHTML=`<div class="icn">${s.icn}</div><h4>${s.city}</h4><div class="pri">${s.pri}</div><p>${s.p}</p>
+    <div class="hotel-row">${s.hotels.map(h=>`<div class="hotel"><div class="lv">${h[0]}</div><div class="nm">${h[1]}</div></div>`).join('')}</div>`;
+  stayGrid.appendChild(el);});
+
+/* CHECKLIST */
+const CHECK=[
+  {icn:"📄",h:"證件與金融",items:["護照正本（效期6個月以上）","越南 E-Visa 列印本（核對拼音）","台幣/美金現鈔（第一郡Ha Tam換匯）"]},
+  {icn:"📱",h:"交通與通訊",items:["Grab App（綁定台灣信用卡）","Viettel / Vinaphone eSIM 網卡","行動電源與萬國轉接頭 (220V)"]},
+  {icn:"👕",h:"衣物與鞋履",items:["夏季輕便衣物與泳衣","薄外套/防風外套（巴拿山防寒）","好走的散步鞋 + 涼拖鞋"]},
+  {icn:"💊",h:"個人防護藥品",items:["高係數防曬乳、墨鏡、遮陽帽","防蚊液（會安古城河畔必備）","個人常備藥（腸胃藥、暈車藥）"]}
+];
+const checkGrid=document.getElementById('checkGrid');let total=0;
+CHECK.forEach(c=>{const el=document.createElement('div');el.className='check-card reveal';
+  el.innerHTML=`<h4>${c.icn} ${c.h}</h4>`+c.items.map(it=>{total++;return `<label class="check-item"><input type="checkbox" class="ck"/><span>${it}</span></label>`}).join('');
+  checkGrid.appendChild(el);});
+const TOTAL_CK=total;
+function updateProg(){const done=document.querySelectorAll('.ck:checked').length;
+  const pct=Math.round(done/TOTAL_CK*100);
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('progPct').textContent=`${pct}% (${done}/${TOTAL_CK})`;}
+document.querySelectorAll('.ck').forEach(c=>c.addEventListener('change',updateProg));
+updateProg();
+
+/* NAV + REVEAL */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10));
+document.getElementById('burger').addEventListener('click',()=>{const m=document.getElementById('mnav');m.style.display=m.style.display==='flex'?'none':'flex';});
+document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').style.display='none'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
